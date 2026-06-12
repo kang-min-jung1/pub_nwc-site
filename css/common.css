@@ -379,7 +379,8 @@ header {
 .btn-box-fallback small { font-size:11px; opacity:.8; }
 .qbtn-icon { font-size: 25px; flex-shrink:0; }
 
-.yt-btn strong      { border:2px solid rgb(241, 45, 45); background-color: white; color: #222; }
+.yt-btn{ border:2px solid rgb(241, 45, 45); background-color: white; color: #222; }
+.yt-btn strong{ color: #222; }
 .fa-youtube {
     color: transparent;
     -webkit-text-stroke: 1px rgb(255, 255, 255);
