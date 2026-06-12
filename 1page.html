@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>천년복음방송</title>
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/script1.js"></script>
+</head>
+<body>
+<div class="wrapper">
+ 
+    <!-- ===== HEADER ===== -->
+    <div class="header-outer">
+        <header class="container-center">
+
+           <a href="index.html" class="logo-link" style="text-decoration: none; color: inherit; display: block;">
+    <div class="logo">
+        <img src="img/logo.png" alt="천년복음방송 로고" class="user-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+       
+    </div>
+</a>
+
+            <!-- 메인 네비게이션 -->
+            <nav class="nav-wrap">
+                <ul class="main-menu">
+                    <li class="nav-item">
+                        <a href="#" class="main-link">예배</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">주일예배</a></li>
+                            <li><a href="#">수요예배</a></li>
+                            <li><a href="#">새벽말씀</a></li>
+                            <li><a href="#">설교영상</a></li>
+                            <li><a href="#">은하수 예배</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="main-link">교육</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">명설교</a></li>
+                            <li><a href="#">기타말씀</a></li>
+                            <li><a href="#">은혜말씀</a></li>
+                            <li><a href="#">새노래</a></li>
+                            <li><a href="#">성경학교</a></li>
+                            <li><a href="#">교리말씀</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="main-link">섭리역사와 사연</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="main-link">커뮤니티</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">광고</a></li>
+                            <li><a href="#">기타 자료</a></li>
+                            <li><a href="#">섭리 뉴스</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- 서브메뉴가 나타날 띠 영역 (헤더 하단부) -->
+                <div class="sub-bar" id="subBar"></div>
+            </nav>
+
+            <div class="utils-container">
+                <div class="utils-top">
+                    <span>할렐루야,</span>
+                    <span class="user-name">님</span>
+                    <a href="#" class="btn-mypage">MyPage</a>
+                    <a href="#" class="btn-logout">Logout</a>
+                    <div class="lang-dropdown">
+    <button class="lang-btn">Select Language <i class="fa-solid fa-angle-down"></i></button>
+    <ul class="lang-menu">
+        <li><a href="#">한국어</a></li>
+        <li><a href="#">English</a></li>
+        <li><a href="#">日本語</a></li>
+        <li><a href="#">中國語</a></li>
+    </ul>
+</div>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="검색어를 입력하세요">
+                    <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+
+        </header>
+    </div>
+    <!-- /header-outer -->
+    <!-- ===== MAIN ===== -->
+    <div class="main-content-wrapper">
+ 
+        <!-- 탑 비주얼 -->
+        <div class="top-visual">
+            <div class="container-center visual-content">
+                <h2>예배</h2>
+                <p>하나님은 영이시니 예배하는 자가 <br>신령과 진정으로 예배할지니라 (요한복음 4:24)</p>
+            </div>
+        </div>
+ 
+        <!-- 사이드바 + 게시판 -->
+        <div class="sub-page-content container-center">
+ 
+            <!-- 사이드바 -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <span>예배</span>
+                  
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="active"><a href="#">주일예배 <span class="dot"></span></a></li>
+                    <li><a href="#">수요예배</a></li>
+                    <li><a href="#">새벽말씀</a></li>
+                    <li><a href="#">설교영상</a></li>
+                    <li><a href="#">은하수 예배</a></li>
+                </ul>
+                <div class="sidebar-info-box">
+                    <div class="icon"><i class="fa-solid fa-headphones"></i></div>
+                    <div class="text">
+                        <strong>예배 안내</strong>
+                        <span>예배 시간과 안내를<br>확인하실 수 있습니다.</span>
+                    </div>
+                    <i class="fa-solid fa-angle-right arrow"></i>
+                </div>
+            </aside>
+ 
+            <!-- 게시판 -->
+            <main class="board-section">
+                <div class="board-header">
+                    <div class="title-wrap">
+                        <i class="fa-regular fa-compass"></i> 주일예배
+                    </div>
+                    <div class="breadcrumbs">Home &gt; 예배 &gt; 주일예배</div>
+                </div>
+ 
+                <div class="board-utils">
+                    <span class="quality q-high"><i class="fa-solid fa-tv"></i> 고화질</span>
+                    <span class="quality q-low"><i class="fa-solid fa-desktop"></i> 저화질</span>
+                    <span class="quality q-audio"><i class="fa-solid fa-headphones"></i> 고음질</span>
+                </div>
+ 
+                <div class="board-list">
+
+    <!-- 헤더 -->
+    <div class="bl-head">
+        <div class="bl-chk"><input type="checkbox" id="checkAll"></div>
+        <div class="bl-date">방송일</div>
+        <div class="bl-title">제목</div>
+        <div class="bl-sep"></div>
+        <div class="bl-content">본문</div>
+        <div class="bl-sep"></div>
+        <div class="bl-preacher">설교자</div>
+        <div class="bl-sep"></div>
+        <div class="bl-views">조회</div>
+    </div>
+
+    <!-- 행들 -->
+    <div class="bl-row">
+        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+        <div class="bl-date">2026-05-24</div>
+        <div class="bl-title"><a href="#">1. 내가 해야 된다 2. 내 축복, 내가 해야 한다 (주혜중 목사)</a></div>
+        <div class="bl-sep"></div>
+        <div class="bl-content">마 21:33~46</div>
+        <div class="bl-sep"></div>
+        <div class="bl-preacher">주혜중 목사</div>
+        <div class="bl-sep"></div>
+        <div class="bl-views">151</div>
+    </div>
+    <div class="bl-row">
+        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+        <div class="bl-date">2026-05-17</div>
+        <div class="bl-title"><a href="#">상대나 상대 존재들에 마음 맞춰서 하여라 (정초별 목사)</a></div>
+        <div class="bl-sep"></div>
+        <div class="bl-content">빌 2:5, 고전 9:22</div>
+        <div class="bl-sep"></div>
+        <div class="bl-preacher">정초별 목사</div>
+        <div class="bl-sep"></div>
+        <div class="bl-views">230</div>
+    </div>
+    <div class="bl-row">
+        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+        <div class="bl-date">2026-05-10</div>
+        <div class="bl-title"><a href="#">선악 분별 (정조아 목사)</a></div>
+        <div class="bl-sep"></div>
+        <div class="bl-content">마 25:32~34</div>
+        <div class="bl-sep"></div>
+        <div class="bl-preacher">정조아 목사</div>
+        <div class="bl-sep"></div>
+        <div class="bl-views">220</div>
+    </div>
+    <div class="bl-row">
+        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+        <div class="bl-date">2026-05-03</div>
+        <div class="bl-title"><a href="#">하나님께 항상 감사하라 (구남용 목사)</a></div>
+        <div class="bl-sep"></div>
+        <div class="bl-content">살전 5:18, 빌 4:6, 시 100:4</div>
+        <div class="bl-sep"></div>
+        <div class="bl-preacher">구남용 목사</div>
+        <div class="bl-sep"></div>
+        <div class="bl-views">227</div>
+    </div>
+    <div class="bl-row">
+        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+        <div class="bl-date">2026-04-26</div>
+        <div class="bl-title"><a href="#">역사의 새 시대는 자기 주관권에서 일어나지 않는다 (장봉수 목사)</a></div>
+        <div class="bl-sep"></div>
+        <div class="bl-content">마 9:17</div>
+        <div class="bl-sep"></div>
+        <div class="bl-preacher">장봉수 목사</div>
+        <div class="bl-sep"></div>
+        <div class="bl-views">173</div>
+    </div>
+    <div class="bl-row">
+        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+        <div class="bl-date">2026-04-12</div>
+        <div class="bl-title"><a href="#">1. 행해야 한다. <br>2. 때를 기다리며 행하라. <br>3. 하나님도 때까지 만드신다. (정세현 목사)</a></div>
+        <div class="bl-sep"></div>
+        <div class="bl-content">약 1:22, 갈 6:9, 벧후 3:8~10</div>
+        <div class="bl-sep"></div>
+        <div class="bl-preacher">정세현 목사</div>
+        <div class="bl-sep"></div>
+        <div class="bl-views">258</div>
+    </div>
+    <div class="bl-row">
+        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+        <div class="bl-date">2026-04-12</div>
+        <div class="bl-title"><a href="#">행하지 않는 자는 죽은 자다 (주신운 목사)</a></div>
+        <div class="bl-sep"></div>
+        <div class="bl-content">약 2:26</div>
+        <div class="bl-sep"></div>
+        <div class="bl-preacher">주신운 목사</div>
+        <div class="bl-sep"></div>
+        <div class="bl-views">251</div>
+    </div>
+    <div class="bl-row">
+        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+        <div class="bl-date">2026-03-09</div>
+        <div class="bl-title"><a href="#">말씀하니 제대로 알고 살아라 (정인태 목사)</a></div>
+        <div class="bl-sep"></div>
+        <div class="bl-content">수 1:8, 눅 11:28, 요 6:63</div>
+        <div class="bl-sep"></div>
+        <div class="bl-preacher">정인태 목사</div>
+        <div class="bl-sep"></div>
+        <div class="bl-views">408</div>
+    </div>
+    <div class="bl-row">
+        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+        <div class="bl-date">2026-03-22</div>
+        <div class="bl-title"><a href="#">그는 이기고 이긴다 <br>그와 같이 행한 자도 이긴다 (정선아 목사)</a></div>
+        <div class="bl-sep"></div>
+        <div class="bl-content">계 6:2, 마 7:3~5</div>
+        <div class="bl-sep"></div>
+        <div class="bl-preacher">정선아 목사</div>
+        <div class="bl-sep"></div>
+        <div class="bl-views">253</div>
+    </div>
+    <div class="bl-row">
+        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+        <div class="bl-date">2026-03-15</div>
+        <div class="bl-title"><a href="#">생명의 말씀 (오주희 목사)</a></div>
+        <div class="bl-sep"></div>
+        <div class="bl-content">수 1:9, 마 24:35</div>
+        <div class="bl-sep"></div>
+        <div class="bl-preacher">오주희 목사</div>
+        <div class="bl-sep"></div>
+        <div class="bl-views">224</div>
+    </div>
+
+</div><!-- /board-list -->
+ 
+                <!-- ★ 누락된 페이지네이션 + 검색창 ★ -->
+                <div class="board-bottom">
+    <div class="pagination">
+        <a href="#" class="page-prev"><i class="fa-solid fa-angle-left"></i></a>
+        <a href="#" class="active" data-page="1">1</a>
+        <a href="#" data-page="2">2</a>
+        <a href="#" data-page="3">3</a>
+        <a href="#" data-page="4">4</a>
+        <a href="#" data-page="5">5</a>
+        <a href="#" data-page="6">6</a>
+        <a href="#" data-page="7">7</a>
+        <span class="ellipsis">...</span>
+        <a href="#" data-page="12">12</a>
+        <a href="#" class="page-next"><i class="fa-solid fa-angle-right"></i></a>
+    </div>
+    <div class="board-search">
+        <input type="text" placeholder="제목 검색">
+        <button>검색</button>
+    </div>
+</div>
+ 
+            </main>
+        </div><!-- /sub-page-content -->
+    </div><!-- /main-content-wrapper -->
+ 
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <!-- 푸터 이미지: images/footer.png -->
+        <img src="img/footer.png" alt="" class="user-img"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+        
+    </footer>
+
+</div>
+</body>
+</html>
