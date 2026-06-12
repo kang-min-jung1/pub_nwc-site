@@ -19,29 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('.nav-item');
     let leaveTimer = null;
 
-    // ★ 초기 상태 설정: 예배 메뉴 active + 서브바 표시
-    navItems[0].classList.add('active');
-
-    setTimeout(() => {
-        subBar.classList.add('show');
-        subBar.innerHTML = '';
-
-        const itemRect = navItems[0].getBoundingClientRect();
-        const navRect  = navWrap.getBoundingClientRect();
-        subBar.style.left = (itemRect.left - navRect.left) + 'px';
-
-        const initSubMenu = navItems[0].querySelector('.sub-menu');
-        if (initSubMenu) {
-            initSubMenu.querySelectorAll('li a').forEach((link, idx) => {
-                const a = document.createElement('a');
-                a.href = link.href;
-                a.textContent = link.textContent;
-                if (idx === 0) a.classList.add('active');
-                subBar.appendChild(a);
-            });
-        }
-    }, 0);
-
     navItems.forEach(item => {
         const subMenu = item.querySelector('.sub-menu');
 
@@ -58,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (subMenu) {
                 const links = subMenu.querySelectorAll('li a');
-                links.forEach((link, idx) => {
+                links.forEach((link) => {
                     const a = document.createElement('a');
                     a.href = link.href;
                     a.textContent = link.textContent;
@@ -82,20 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
         navWrap.addEventListener('mouseleave', () => {
             leaveTimer = setTimeout(() => {
                 navItems.forEach(i => i.classList.remove('active'));
-                navItems[0].classList.add('active');
-                subBar.classList.add('show');
+                subBar.classList.remove('show');
                 subBar.innerHTML = '';
-
-                const itemRect = navItems[0].getBoundingClientRect();
-                const navRect  = navWrap.getBoundingClientRect();
-                subBar.style.left = (itemRect.left - navRect.left) + 'px';
-
-                ['주일예배','수요예배','새벽말씀','설교영상','은하수 예배'].forEach((txt, idx) => {
-                    const a = document.createElement('a');
-                    a.href = '#'; a.textContent = txt;
-                    if (idx === 0) a.classList.add('active');
-                    subBar.appendChild(a);
-                });
             }, 150);
         });
     }
