@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>섭리역사와 사연</title>
+    <link rel="stylesheet" href="css/style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/script3.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+
+    <!-- ===== HEADER ===== -->
+    <div class="header-outer">
+        <header class="container-center">
+
+            <a href="index.html" class="logo-link" style="text-decoration: none; color: inherit; display: block;">
+                <div class="logo">
+                    <img src="img/logo.png" alt="천년복음방송 로고" class="user-img"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                </div>
+            </a>
+
+            <nav class="nav-wrap">
+                <ul class="main-menu">
+                    <li class="nav-item">
+                        <a href="#" class="main-link">예배</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">주일예배</a></li>
+                            <li><a href="#">수요예배</a></li>
+                            <li><a href="#">새벽말씀</a></li>
+                            <li><a href="#">설교영상</a></li>
+                            <li><a href="#">은하수 예배</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="main-link">교육</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">명설교</a></li>
+                            <li><a href="#">기타말씀</a></li>
+                            <li><a href="#">은혜말씀</a></li>
+                            <li><a href="#">새노래</a></li>
+                            <li><a href="#">성경학교</a></li>
+                            <li><a href="#">교리말씀</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#" class="main-link">섭리역사와 사연</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="main-link">커뮤니티</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">광고</a></li>
+                            <li><a href="#">기타 자료</a></li>
+                            <li><a href="#">섭리 뉴스</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="sub-bar" id="subBar"></div>
+            </nav>
+
+            <div class="utils-container">
+                <div class="utils-top">
+                    <span>할렐루야,</span>
+                    <span class="user-name">님</span>
+                    <a href="#" class="btn-mypage">MyPage</a>
+                    <a href="#" class="btn-logout">Logout</a>
+                    <div class="lang-dropdown">
+                        <button class="lang-btn">Select Language <i class="fa-solid fa-angle-down"></i></button>
+                        <ul class="lang-menu">
+                            <li><a href="#">한국어</a></li>
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">日本語</a></li>
+                            <li><a href="#">中國語</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="검색어를 입력하세요">
+                    <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+
+        </header>
+    </div>
+
+    <!-- ===== MAIN ===== -->
+    <div class="main-content-wrapper">
+
+        <!-- 탑 비주얼 -->
+        <div class="top-visual">
+        
+        </div>
+
+        <!-- 게시판 (사이드바 없음, 중앙 정렬) -->
+        <div class="sub-page-content container-center">
+
+            <!-- 게시판 -->
+            <main class="board-section">
+                <div class="board-header">
+                    <div class="title-wrap">
+                        <i class="fa-regular fa-compass"></i> 섭리역사와 사연
+                    </div>
+                    <div class="breadcrumbs">Home &gt; 섭리역사와 사연</div>
+                </div>
+
+                <div class="board-utils">
+                    <span class="quality q-high"><i class="fa-solid fa-tv"></i> 고화질</span>
+                    <span class="quality q-low"><i class="fa-solid fa-desktop"></i> 저화질</span>
+                    <span class="quality q-audio"><i class="fa-solid fa-headphones"></i> 고음질</span>
+                </div>
+
+                <div class="board-list">
+
+                    <!-- 헤더 -->
+                    <div class="bl-head">
+                        <div class="bl-chk"><input type="checkbox" id="checkAll"></div>
+                        <div class="bl-date">방송일</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-title" style="text-align:center;">제목</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-views">조회</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-watch">방송보기</div>
+                    </div>
+
+                    <!-- 행 1 -->
+                    <div class="bl-row">
+                        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+                        <div class="bl-date">2025-04-27</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-title"><a href="#">[4회] 오직 하나님</a></div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-views">497</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-watch">
+                            <div class="watch-btns">
+                                <a href="watch.html?id=1&q=high" class="watch-btn high" title="고화질"><i class="fa-solid fa-tv"></i></a>
+                                <a href="watch.html?id=1&q=low" class="watch-btn low" title="저화질"><i class="fa-solid fa-desktop"></i></a>
+                                <a href="watch.html?id=1&q=audio" class="watch-btn audio" title="고음질"><i class="fa-solid fa-headphones"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 행 2 -->
+                    <div class="bl-row">
+                        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+                        <div class="bl-date">2025-04-27</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-title"><a href="#">[4회] 이 또한 지나갈 거야</a></div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-views">312</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-watch">
+                            <div class="watch-btns">
+                                <a href="watch.html?id=2&q=high" class="watch-btn high" title="고화질"><i class="fa-solid fa-tv"></i></a>
+                                <a href="watch.html?id=2&q=low" class="watch-btn low" title="저화질"><i class="fa-solid fa-desktop"></i></a>
+                                <a href="watch.html?id=2&q=audio" class="watch-btn audio" title="고음질"><i class="fa-solid fa-headphones"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 행 3 -->
+                    <div class="bl-row">
+                        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+                        <div class="bl-date">2025-04-27</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-title"><a href="#">[4회] 힘들어하는 2세들에게</a></div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-views">398</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-watch">
+                            <div class="watch-btns">
+                                <a href="watch.html?id=3&q=high" class="watch-btn high" title="고화질"><i class="fa-solid fa-tv"></i></a>
+                                <a href="watch.html?id=3&q=low" class="watch-btn low" title="저화질"><i class="fa-solid fa-desktop"></i></a>
+                                <a href="watch.html?id=3&q=audio" class="watch-btn audio" title="고음질"><i class="fa-solid fa-headphones"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 행 4 -->
+                    <div class="bl-row">
+                        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+                        <div class="bl-date">2025-02-09</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-title"><a href="#">[2회] 내가 만난 선생님</a></div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-views">750</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-watch">
+                            <div class="watch-btns">
+                                <a href="watch.html?id=4&q=high" class="watch-btn high" title="고화질"><i class="fa-solid fa-tv"></i></a>
+                                <a href="watch.html?id=4&q=low" class="watch-btn low" title="저화질"><i class="fa-solid fa-desktop"></i></a>
+                                <a href="watch.html?id=4&q=audio" class="watch-btn audio" title="고음질"><i class="fa-solid fa-headphones"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 행 5 -->
+                    <div class="bl-row">
+                        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+                        <div class="bl-date">2025-02-09</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-title"><a href="#">[2회] 새뇌교육의 귀함을 깨닫게 된 사연</a></div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-views">302</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-watch">
+                            <div class="watch-btns">
+                                <a href="watch.html?id=5&q=high" class="watch-btn high" title="고화질"><i class="fa-solid fa-tv"></i></a>
+                                <a href="watch.html?id=5&q=low" class="watch-btn low" title="저화질"><i class="fa-solid fa-desktop"></i></a>
+                                <a href="watch.html?id=5&q=audio" class="watch-btn audio" title="고음질"><i class="fa-solid fa-headphones"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 행 6 -->
+                    <div class="bl-row">
+                        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+                        <div class="bl-date">2025-02-09</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-title"><a href="#">[2회] 참된 선생님을 만난 사연</a></div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-views">314</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-watch">
+                            <div class="watch-btns">
+                                <a href="watch.html?id=6&q=high" class="watch-btn high" title="고화질"><i class="fa-solid fa-tv"></i></a>
+                                <a href="watch.html?id=6&q=low" class="watch-btn low" title="저화질"><i class="fa-solid fa-desktop"></i></a>
+                                <a href="watch.html?id=6&q=audio" class="watch-btn audio" title="고음질"><i class="fa-solid fa-headphones"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 행 7 -->
+                    <div class="bl-row">
+                        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+                        <div class="bl-date">2024-12-29</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-title"><a href="#">[1회] 성령집에서 깨달은 사연</a></div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-views">442</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-watch">
+                            <div class="watch-btns">
+                                <a href="watch.html?id=7&q=high" class="watch-btn high" title="고화질"><i class="fa-solid fa-tv"></i></a>
+                                <a href="watch.html?id=7&q=low" class="watch-btn low" title="저화질"><i class="fa-solid fa-desktop"></i></a>
+                                <a href="watch.html?id=7&q=audio" class="watch-btn audio" title="고음질"><i class="fa-solid fa-headphones"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 행 8 -->
+                    <div class="bl-row">
+                        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+                        <div class="bl-date">2024-12-29</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-title"><a href="#">[1회] 캠퍼스 선교 1등 사연</a></div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-views">550</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-watch">
+                            <div class="watch-btns">
+                                <a href="watch.html?id=8&q=high" class="watch-btn high" title="고화질"><i class="fa-solid fa-tv"></i></a>
+                                <a href="watch.html?id=8&q=low" class="watch-btn low" title="저화질"><i class="fa-solid fa-desktop"></i></a>
+                                <a href="watch.html?id=8&q=audio" class="watch-btn audio" title="고음질"><i class="fa-solid fa-headphones"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 행 9 -->
+                    <div class="bl-row">
+                        <div class="bl-chk"><input type="checkbox" class="chk-item"></div>
+                        <div class="bl-date">2024-12-29</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-title"><a href="#">[1회] 하나님께서 지켜주신 사연</a></div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-views">277</div>
+                        <div class="bl-sep"></div>
+                        <div class="bl-watch">
+                            <div class="watch-btns">
+                                <a href="watch.html?id=9&q=high" class="watch-btn high" title="고화질"><i class="fa-solid fa-tv"></i></a>
+                                <a href="watch.html?id=9&q=low" class="watch-btn low" title="저화질"><i class="fa-solid fa-desktop"></i></a>
+                                <a href="watch.html?id=9&q=audio" class="watch-btn audio" title="고음질"><i class="fa-solid fa-headphones"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /board-list -->
+
+                <div class="board-bottom">
+                    <div class="pagination">
+                        <a href="#" class="page-first"><i class="fa-solid fa-angles-left"></i></a>
+                        <a href="#" class="page-prev"><i class="fa-solid fa-angle-left"></i></a>
+                        <a href="#" class="active" data-page="1">1</a>
+                        <a href="#" data-page="2">2</a>
+                        <a href="#" data-page="3">3</a>
+                        <a href="#" data-page="4">4</a>
+                        <a href="#" data-page="5">5</a>
+                        <a href="#" class="page-next"><i class="fa-solid fa-angle-right"></i></a>
+                        <a href="#" class="page-last"><i class="fa-solid fa-angles-right"></i></a>
+                    </div>
+                    <div class="board-search">
+                        <input type="text" placeholder="검색어를 입력하세요">
+                        <button>검색</button>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <img src="img/footer.png" alt="" class="user-img"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+    </footer>
+
+</div>
+</body>
+</html>
