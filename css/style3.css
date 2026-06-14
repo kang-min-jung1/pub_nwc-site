@@ -26,6 +26,69 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ================= HEADER ================= */
+/* ================= 세 페이지 헤더 위치 절대 고정 (최종 보완판) ================= */
+
+/* 1. 기본 컨테이너 가로폭 고정 */
+.container-center { 
+    width: 1250px !important;
+    max-width: 1250px !important;
+    margin: 0 auto !important; 
+    padding: 0 20px !important; 
+    box-sizing: border-box !important;
+}
+
+/* 2. 헤더 구역 분할 - 높이를 유연하게(auto) 두어 서브메뉴 공간 확보 */
+header {
+    display: grid !important;
+    grid-template-columns: 220px 1fr 320px !important; /* 우측 영역을 320px로 넓혀서 공간 확보 */
+    align-items: center !important;
+    min-height: 80px !important; /* 최소 높이만 지정 */
+    height: auto !important;     /* 서브메뉴가 나오면 아래로 자연스럽게 늘어나도록 설정 */
+    width: 100% !important;
+    padding: 10px 0 !important;  /* 위아래 자연스러운 여백 */
+}
+
+/* 3. 좌측 로고 구역 */
+.logo { 
+    width: 220px !important; 
+    position: static !important; 
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+}
+.logo img { 
+    width: 100% !important; 
+    height: auto !important; 
+    display: block !important; 
+}
+
+/* 4. 가운데 메뉴 구역 - 서브메뉴가 포함되어도 높이가 유연하게 반응하도록 수정 */
+.nav-wrap {
+    width: 100% !important;
+    min-width: 0 !important; 
+    display: flex !important; 
+    flex-direction: column !important;
+    align-items: center !important; 
+    position: relative !important; 
+    min-height: 50px !important; /* 고정 height 제거 */
+    height: auto !important;
+    justify-content: center !important;
+}
+
+/* 5. 우측 유틸리티 구역 - 가로폭을 늘리고 글자가 아래로 쪼개지는 현상 절대 방지 */
+.utils-container { 
+    width: 320px !important; /* 240px -> 320px로 확장 */
+    display: flex !important; 
+    flex-direction: column !important; 
+    align-items: flex-end !important; 
+    gap: 6px !important; 
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+}
+
+/* 우측 텍스트들이 좁아서 강제로 한 글자씩 떨어지는 현상 차단 */
+.utils-container * {
+    white-space: nowrap !important; 
+}
 header {
     height: 80px;
     display: flex;
