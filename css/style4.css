@@ -18,17 +18,10 @@ a { text-decoration: none; color: inherit; }
     flex-direction: column;
     overflow: hidden;
 }
-    
-.container-center { 
-    width: min(1250px, 100%);
-    padding: 0 20px;
-    margin: 0 auto; 
-}
 
 /* ================= HEADER ================= */
-/* ================= 세 페이지 헤더 위치 절대 고정 (최종 보완판) ================= */
 
-/* 1. 기본 컨테이너 가로폭 고정 */
+/* 1. 기본 컨테이너 가로폭 및 중앙 정렬 고정 */
 .container-center { 
     width: 1250px !important;
     max-width: 1250px !important;
@@ -37,23 +30,31 @@ a { text-decoration: none; color: inherit; }
     box-sizing: border-box !important;
 }
 
-/* 2. 헤더 구역 분할 - 높이를 유연하게(auto) 두어 서브메뉴 공간 확보 */
-header {
-    display: grid !important;
-    grid-template-columns: 220px 1fr 320px !important; /* 우측 영역을 320px로 넓혀서 공간 확보 */
-    align-items: center !important;
-    min-height: 80px !important; /* 최소 높이만 지정 */
-    height: auto !important;     /* 서브메뉴가 나오면 아래로 자연스럽게 늘어나도록 설정 */
-    width: 100% !important;
-    padding: 10px 0 !important;  /* 위아래 자연스러운 여백 */
+.header-outer {
+    border-bottom: 2px solid #c1d7f1;
+    flex-shrink: 0;
+    height: 80px;
 }
 
-/* 3. 좌측 로고 구역 */
+/* 2. 헤더 전체 틀 */
+header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    height: auto !important;
+    padding: 0 5px 15px 5px !important;
+}
+
+/* 3. 좌측 로고 */
 .logo { 
     width: 220px !important; 
-    position: static !important; 
-    flex-shrink: 0 !important;
+    flex: 0 0 220px !important;
+    height: 80px !important;
+    display: flex !important;
+    align-items: center !important;
     margin: 0 !important;
+    position: relative;
+    left: 10px;
 }
 .logo img { 
     width: 100% !important; 
@@ -61,58 +62,12 @@ header {
     display: block !important; 
 }
 
-/* 4. 가운데 메뉴 구역 - 서브메뉴가 포함되어도 높이가 유연하게 반응하도록 수정 */
+/* 4. 가운데 메뉴 구역 */
 .nav-wrap {
-    width: 100% !important;
-    min-width: 0 !important; 
-    display: flex !important; 
+    flex: 1 !important;
+    display: flex !important;
     flex-direction: column !important;
-    align-items: center !important; 
-    position: relative !important; 
-    min-height: 50px !important; /* 고정 height 제거 */
-    height: auto !important;
-    justify-content: center !important;
-}
-
-/* 5. 우측 유틸리티 구역 - 가로폭을 늘리고 글자가 아래로 쪼개지는 현상 절대 방지 */
-.utils-container { 
-    width: 320px !important; /* 240px -> 320px로 확장 */
-    display: flex !important; 
-    flex-direction: column !important; 
-    align-items: flex-end !important; 
-    gap: 6px !important; 
-    flex-shrink: 0 !important;
-    margin: 0 !important;
-}
-
-/* 우측 텍스트들이 좁아서 강제로 한 글자씩 떨어지는 현상 차단 */
-.utils-container * {
-    white-space: nowrap !important; 
-}
-header {
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5px;
-}
-
-.header-outer {
-    border-bottom: 2px solid #c1d7f1;
-    flex-shrink: 0;
-    height: 80px;
-}
-
-/* ── 로고 ── */
-.logo { width: 220px; position: relative; left: 10px; }
-.logo img { width: 100%; height: 100%; }
-
-/* ── nav-wrap ── */
-.nav-wrap {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: center !important;
     position: relative;
     height: 70px;
 }
@@ -139,16 +94,14 @@ header {
 
 .main-link {
     position: relative;
-    top:5px;
+    top: 5px;
     transition: color .2s;
     white-space: nowrap;
     color: #444;
 }
 
 .nav-item:hover .main-link,
-.nav-item.active .main-link {
-    color: #2c3a8c;
-}
+.nav-item.active .main-link { color: #2c3a8c; }
 .nav-item:hover .main-link::after,
 .nav-item.active .main-link::after {
     content: '';
@@ -177,8 +130,9 @@ header {
     transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-.nav-wrap:hover .sub-bar { opacity: 1; visibility: visible; }
+.nav-wrap:hover .sub-bar,
 .sub-bar.show { opacity: 1; visibility: visible; }
+
 .sub-bar a {
     display: inline-block;
     padding: 2px 7px;
@@ -189,16 +143,28 @@ header {
     transition: background 0.2s, color 0.2s;
     white-space: nowrap;
 }
-
-.sub-bar a:hover { background: #2c3a8c; color: #ffffff; }
+.sub-bar a:hover,
 .sub-bar a.active { background: #2c3a8c; color: #ffffff; }
 
 .sub-menu { display: none; }
 
-/* ── utils ── */
-.utils-container { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+/* 5. 우측 유틸리티 구역 */
+.utils-container { 
+    width: 340px !important;
+    flex: 0 0 340px !important;
+    height: 80px !important;
+    display: flex !important; 
+    flex-direction: column !important; 
+    justify-content: center !important;
+    align-items: flex-end !important; 
+    gap: 6px !important; 
+    margin: 0 !important;
+}
+
+.utils-container * { white-space: nowrap !important; }
+
 .utils-top { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #555; }
-.user-name { font-weight: 700; color: #000; margin-right: 20px;}
+.user-name { font-weight: 700; color: #000; margin-right: 20px; }
 
 /* 공통 버튼 스타일 */
 .btn-mypage, .btn-logout, .lang-btn {
@@ -226,20 +192,17 @@ header {
     font-weight: 900;
     padding: 4px 12px;
 }
-.btn-logout:hover { background: #3b5bdb; color: #fff; }
+.btn-logout:hover,
 .btn-logout.active { background: #3b5bdb; color: #fff; }
-.btn-mypage.inactive { background: #edf0fb; color: #3b5bdb; }
 
 /* ── 언어 선택 드롭다운 ── */
 .lang-dropdown { position: relative; padding-bottom: 10px; margin-bottom: -10px; }
-
 .lang-btn {
     background: transparent;
     border: 2px solid #d2d5e6;
     color: #555;
     white-space: nowrap;
 }
-
 .lang-menu {
     display: none;
     position: absolute;
@@ -270,6 +233,7 @@ header {
 .search-box input { border: none; outline: none; width: 100%; font-size: 11px; font-family: inherit; }
 .search-btn { background: none; border: none; cursor: pointer; font-size: 12px; color: #3b5bdb; padding: 0 0 0 6px; }
 
+
 /* ================= MAIN CONTENT ================= */
 .main-content-wrapper { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 
@@ -286,13 +250,12 @@ header {
 }
 
 .visual-content { position: relative; z-index: 2; }
-.visual-content h2 { font-size: 33px; font-weight: 900; margin-bottom: 15px; letter-spacing: -0.5px; font-family: "Nanum Myeongjo", serif; font-weight: normal; }
+.visual-content h2 { font-size: 33px; margin-bottom: 15px; letter-spacing: -0.5px; font-family: "Nanum Myeongjo", serif; font-weight: normal; }
 .visual-content p { font-size: 11px; opacity: 0.9; font-weight: 300; line-height: 1.7; }
 
 /* 본문 영역 */
 .sub-page-content { flex: 1; display: flex; flex-direction: row; gap: 20px; padding: 7px 30px 7px; overflow: hidden; }
 
-/* ================= SIDEBAR (커뮤니티 스타일) ================= */
 /* ================= SIDEBAR ================= */
 .sidebar { 
     height: 100%;
@@ -308,7 +271,6 @@ header {
     align-self: flex-start;
 }
 
-/* 사이드바 헤더 - 이미지 배경 유지, 글자만 */
 .sidebar-header {
     background-image: url(../img/community.png);
     background-position: center;
@@ -325,14 +287,10 @@ header {
     min-height: 60px;
 }
 
-.sidebar-star {
-    font-size: 16px;
-    color: rgba(255,255,255,0.85);
-}
+.sidebar-star { font-size: 16px; color: rgba(255,255,255,0.85); }
 
-/* ── 사이드바 메뉴 ── */
 .sidebar-menu {
-    padding: 12px 10px; /* 메뉴 전체에 좌우 여백을 주어 활성 배경이 둥글게 들어가도록 함 */
+    padding: 12px 10px;
     background: #fff;
 }
 
@@ -341,17 +299,15 @@ header {
     margin-bottom: 2px;
 }
 
-/* 항목 사이 얇은 구분선 (마지막 항목 제외) */
 .sidebar-menu li:not(:last-child)::after {
     content: '';
     display: block;
-    width: calc(100% - 24px); /* 양옆 여백을 남긴 선 넓이 */
+    width: calc(100% - 24px);
     height: 1px;
-    background: #f4f4f4; /* 연한 회색 선 */
+    background: #f4f4f4;
     margin: 4px auto;
 }
 
-/* 왼쪽 파란 바 (활성 상태) */
 .sidebar-menu li::before {
     content: '';
     position: absolute;
@@ -365,11 +321,8 @@ header {
     transition: background 0.2s;
     z-index: 2;
 }
-.sidebar-menu li.active::before {
-    background: #6684fe; /* 활성화 시 파란색 선 표시 */
-}
+.sidebar-menu li.active::before { background: #6684fe; }
 
-/* 메뉴 링크 기본 */
 .sidebar-menu li a {
     display: flex;
     align-items: center;
@@ -377,48 +330,37 @@ header {
     padding: 12px 14px;
     font-size: 14px;
     font-weight: 500;
-    color: #777; /* 비활성 텍스트 회색 */
+    color: #777;
     background: transparent;
-    border-radius: 8px; /* 활성 상태 배경을 둥글게 처리 */
+    border-radius: 8px;
     transition: all 0.15s;
     text-decoration: none;
 }
 
-/* 호버 상태 */
-.sidebar-menu li a:hover {
-    background: #f8faff; /* 호버 시 살짝 연한 배경 추가 */
-    color: #3b5bdb;
-}
+.sidebar-menu li a:hover { background: #f8faff; color: #3b5bdb; }
 
-/* 활성 상태: 배경과 글자색 변경 */
 .sidebar-menu li.active a {
-    background: #f0f4ff; /* 연한 파란색 배경 */
-    color: #3b5bdb;      /* 파란색 텍스트 */
+    background: #f0f4ff;
+    color: #3b5bdb;
     font-weight: 700;
 }
 
-/* 아이콘 기본 (박스 배경 제거 및 사이즈 조정) */
 .menu-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px; /* 아이콘 크기 약간 확대 */
+    font-size: 16px;
     color: #a0a0a0;
-    background: transparent; /* 기존 회색 배경 제거 */
+    background: transparent;
     width: auto;
     height: auto;
     transition: color 0.15s;
 }
 
-/* 활성/호버 시 아이콘: 파란색 */
 .sidebar-menu li.active .menu-icon,
-.sidebar-menu li a:hover .menu-icon {
-    color: #3b5bdb;
-}
+.sidebar-menu li a:hover .menu-icon { color: #3b5bdb; }
 
-.menu-text {
-    flex: 1;
-}
+.menu-text { flex: 1; }
 
 /* ── 우측 게시판 ── */
 .board-section { 
@@ -472,37 +414,19 @@ header {
 .bl-title a { color: #444; text-decoration: none; }
 .bl-title a:hover { color: #2c3a8c; text-decoration: underline; }
 
-/* ── 방송보기 버튼 3개 ── */
-.watch-btns {
-    display: flex;
-    gap: 4px;
-    justify-content: center;
-    align-items: center;
-}
+/* ── 방송보기 버튼 ── */
+.watch-btns { display: flex; gap: 4px; justify-content: center; align-items: center; }
 .watch-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 20px;
-    border-radius: 4px;
-    border: 1.5px solid;
-    cursor: pointer;
-    font-size: 10px;
-    text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 20px; border-radius: 4px; border: 1.5px solid;
+    cursor: pointer; font-size: 10px; text-decoration: none;
     transition: background 0.15s, color 0.15s, transform 0.1s;
 }
 .watch-btn:hover { transform: scale(1.1); }
-
-/* 고화질 - 초록 */
 .watch-btn.high  { border-color: #70ad47; color: #70ad47; background: #f4faf0; }
 .watch-btn.high:hover,  .watch-btn.high.active  { background: #70ad47; color: #fff; }
-
-/* 저화질 - 노랑 */
 .watch-btn.low   { border-color: #e6a800; color: #e6a800; background: #fffbee; }
 .watch-btn.low:hover,   .watch-btn.low.active   { background: #e6a800; color: #fff; }
-
-/* 고음질 - 주황 */
 .watch-btn.audio { border-color: #ed7d31; color: #ed7d31; background: #fff7f2; }
 .watch-btn.audio:hover, .watch-btn.audio.active { background: #ed7d31; color: #fff; }
 
@@ -511,7 +435,6 @@ header {
     position: relative; display: flex; justify-content: center; align-items: center; 
     margin-top: 12px; flex-shrink: 0; width: 100%; min-height: 32px;
 }
-
 .pagination { display: flex; justify-content: center; gap: 8px; align-items: center; }
 .pagination a { 
     display: inline-flex; align-items: center; justify-content: center; 
@@ -522,7 +445,6 @@ header {
 .pagination a.active { background: #3920a7; color: #fff; font-weight: 700; }
 .pagination .ellipsis { color: #999; margin: 0 2px; font-size: 12px; }
 
-/* 검색창 */
 .board-search { 
     position: absolute; right: 0; top: 50%; transform: translateY(-50%); 
     display: flex; align-items: center; gap: 6px; 
@@ -541,7 +463,5 @@ header {
 .board-search button:hover { opacity: 0.85; }
 
 /* ================= FOOTER ================= */
-footer {
-    width: 100vw; height: 90px; flex-shrink: 0; position: relative; overflow: hidden;
-}
+footer { width: 100vw; height: 90px; flex-shrink: 0; position: relative; overflow: hidden; }
 footer img { width: 100%; height: 100%; object-fit: cover; object-position: center; }

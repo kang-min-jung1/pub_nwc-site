@@ -19,16 +19,9 @@ a { text-decoration: none; color: inherit; }
     overflow: hidden;
 }
     
-.container-center { 
-    width: min(1250px, 100%);
-    padding: 0 20px;
-    margin: 0 auto; 
-}
+/* ================= LAYOUT & HEADER ================= */
 
-/* ================= HEADER ================= */
-/* ================= 세 페이지 헤더 위치 절대 고정 (최종 보완판) ================= */
-
-/* 1. 기본 컨테이너 가로폭 고정 */
+/* 1. 기본 컨테이너 가로폭 및 중앙 정렬 고정 */
 .container-center { 
     width: 1250px !important;
     max-width: 1250px !important;
@@ -37,23 +30,31 @@ a { text-decoration: none; color: inherit; }
     box-sizing: border-box !important;
 }
 
-/* 2. 헤더 구역 분할 - 높이를 유연하게(auto) 두어 서브메뉴 공간 확보 */
-header {
-    display: grid !important;
-    grid-template-columns: 220px 1fr 320px !important; /* 우측 영역을 320px로 넓혀서 공간 확보 */
-    align-items: center !important;
-    min-height: 80px !important; /* 최소 높이만 지정 */
-    height: auto !important;     /* 서브메뉴가 나오면 아래로 자연스럽게 늘어나도록 설정 */
-    width: 100% !important;
-    padding: 10px 0 !important;  /* 위아래 자연스러운 여백 */
+.header-outer {
+    border-bottom: 2px solid #c1d7f1;
+    flex-shrink: 0;
+    height: 80px;
 }
 
-/* 3. 좌측 로고 구역 */
+/* 2. 헤더 전체 틀 - 상단 정렬(flex-start) 및 여백 고정 */
+header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important; 
+    height: auto !important;            
+    padding: 0 5px 15px 5px !important;
+}
+
+/* 3. 좌측 로고 - 너비 고정 및 80px 내부 세로 중앙 정렬 */
 .logo { 
     width: 220px !important; 
-    position: static !important; 
-    flex-shrink: 0 !important;
+    flex: 0 0 220px !important;
+    height: 80px !important;            
+    display: flex !important;
+    align-items: center !important;     
     margin: 0 !important;
+    position: relative;
+    left: 10px;
 }
 .logo img { 
     width: 100% !important; 
@@ -61,59 +62,12 @@ header {
     display: block !important; 
 }
 
-/* 4. 가운데 메뉴 구역 - 서브메뉴가 포함되어도 높이가 유연하게 반응하도록 수정 */
+/* 4. 가운데 메뉴 구역 - 구조 통합 및 서브바 기준점 고정 */
 .nav-wrap {
-    width: 100% !important;
-    min-width: 0 !important; 
-    display: flex !important; 
+    flex: 1 !important;                 
+    display: flex !important;
     flex-direction: column !important;
-    align-items: center !important; 
-    position: relative !important; 
-    min-height: 50px !important; /* 고정 height 제거 */
-    height: auto !important;
-    justify-content: center !important;
-}
-
-/* 5. 우측 유틸리티 구역 - 가로폭을 늘리고 글자가 아래로 쪼개지는 현상 절대 방지 */
-.utils-container { 
-    width: 320px !important; /* 240px -> 320px로 확장 */
-    display: flex !important; 
-    flex-direction: column !important; 
-    align-items: flex-end !important; 
-    gap: 6px !important; 
-    flex-shrink: 0 !important;
-    margin: 0 !important;
-}
-
-/* 우측 텍스트들이 좁아서 강제로 한 글자씩 떨어지는 현상 차단 */
-.utils-container * {
-    white-space: nowrap !important; 
-}
-header {
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5px;
-}
-
-.header-outer {
-    border-bottom: 2px solid #c1d7f1;
-    flex-shrink: 0;
-    height: 80px;
-  
-}
-
-/* ── 로고 ── */
-.logo { width: 220px; position: relative; left: 10px; }
-.logo img { width: 100%; height: 100%; }
-
-/* ── nav-wrap ── */
-.nav-wrap {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: center !important;
     position: relative;
     height: 70px;
 }
@@ -140,7 +94,7 @@ header {
 
 .main-link {
     position: relative;
-    top:5px;
+    top: 5px;
     transition: color .2s;
     white-space: nowrap;
     color: #444;
@@ -178,9 +132,9 @@ header {
     transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-.nav-wrap:hover .sub-bar { opacity: 1; visibility: visible; }
 .nav-wrap:hover .sub-bar,
 .sub-bar.show { opacity: 1; visibility: visible; }
+
 .sub-bar a {
     display: inline-block;
     padding: 2px 7px;
@@ -191,18 +145,34 @@ header {
     transition: background 0.2s, color 0.2s;
     white-space: nowrap;
 }
-
-.sub-bar a:hover { background: #2c3a8c; color: #ffffff; }
+.sub-bar a:hover,
 .sub-bar a.active { background: #2c3a8c; color: #ffffff; }
 
 .sub-menu { display: none; }
 
-/* ── utils ── */
-.utils-container { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
-.utils-top { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #555; }
+/* 5. 우측 유틸리티 구역 - 너비 확장 및 독립 세로 정렬 */
+.utils-container { 
+    width: 340px !important;            
+    flex: 0 0 340px !important;
+    height: 80px !important;            
+    display: flex !important; 
+    flex-direction: column !important; 
+    justify-content: center !important; 
+    align-items: flex-end !important; 
+    gap: 6px !important; 
+    margin: 0 !important;
+}
+
+/* 우측 텍스트 줄바꿈 차단 */
+.utils-container * {
+    white-space: nowrap !important; 
+}
+
+.utils-top { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #555; margin: top px;
+ }
 .user-name { font-weight: 700; color: #000; margin-right: 20px;}
 
-/* 공통 버튼 스타일 병합 */
+/* 공통 버튼 스타일 */
 .btn-mypage, .btn-logout, .lang-btn {
     border-radius: 7px;
     font-size: 10px;
@@ -228,20 +198,17 @@ header {
     font-weight: 900;
     padding: 4px 12px;
 }
-.btn-logout:hover { background: #3b5bdb; color: #fff; }
+.btn-logout:hover,
 .btn-logout.active { background: #3b5bdb; color: #fff; }
-.btn-mypage.inactive { background: #edf0fb; color: #3b5bdb; }
 
 /* ── 언어 선택 드롭다운 ── */
 .lang-dropdown { position: relative; padding-bottom: 10px; margin-bottom: -10px; }
-
 .lang-btn {
     background: transparent;
     border: 2px solid #d2d5e6;
     color: #555;
     white-space: nowrap;
 }
-
 .lang-menu {
     display: none;
     position: absolute;
@@ -272,6 +239,7 @@ header {
 .search-box input { border: none; outline: none; width: 100%; font-size: 11px; font-family: inherit; }
 .search-btn { background: none; border: none; cursor: pointer; font-size: 12px; color: #3b5bdb; padding: 0 0 0 6px; }
 
+
 /* ================= MAIN CONTENT ================= */
 .main-content-wrapper { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 
@@ -286,9 +254,8 @@ header {
     box-sizing: border-box;
     color: #fff; display: flex; align-items: center; position: relative; overflow: hidden;
 }
-
 .visual-content { position: relative; z-index: 2;  }
-.visual-content h2 { font-size: 33px; font-weight: 900; margin-bottom: 15px; letter-spacing: -0.5px; font-family: "Nanum Myeongjo", serif; font-weight: normal; }
+.visual-content h2 { font-size: 33px; margin-bottom: 15px; letter-spacing: -0.5px; font-family: "Nanum Myeongjo", serif; font-weight: normal; }
 .visual-content p { font-size: 11px; opacity: 0.9; font-weight: 300; line-height: 1.7; }
 
 /* 본문 영역 */
@@ -367,17 +334,9 @@ header {
     display: flex; align-items: center; justify-content: center;
     font-size: 15px; flex-shrink: 0;
 }
-.sidebar-contact-box .contact-label {
-    font-size: 12px; font-weight: 700; color: #222;
-}
-.sidebar-contact-box .contact-phone {
-    font-size: 14px; font-weight: 900; color: #2c3a8c;
-    padding-left: 42px;
-}
-.sidebar-contact-box .contact-hours {
-    font-size: 10px; color: #888;
-    padding-left: 42px;
-}
+.sidebar-contact-box .contact-label { font-size: 12px; font-weight: 700; color: #222; }
+.sidebar-contact-box .contact-phone { font-size: 14px; font-weight: 900; color: #2c3a8c; padding-left: 42px; }
+.sidebar-contact-box .contact-hours { font-size: 10px; color: #888; padding-left: 42px; }
 
 /* ── 우측 게시판 ── */
 .board-section { 
@@ -414,7 +373,6 @@ header {
     color: #fff; padding: 6px 0; font-weight: 500; flex-shrink: 0; border-radius: 10px;
 }
 .bl-row {
- 
     padding: 5px 0;
     border-bottom: 1px solid #eaeaea;
     color: #555; transition: background 0.15s;
@@ -435,23 +393,11 @@ header {
 .bl-title a:hover { color: #2c3a8c; text-decoration: underline; }
 
 /* ── 방송보기 버튼 3개 ── */
-.watch-btns {
-    display: flex;
-    gap: 4px;
-    justify-content: center;
-    align-items: center;
-}
+.watch-btns { display: flex; gap: 4px; justify-content: center; align-items: center; }
 .watch-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 20px;
-    border-radius: 4px;
-    border: 1.5px solid;
-    cursor: pointer;
-    font-size: 10px;
-    text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 20px; border-radius: 4px; border: 1.5px solid;
+    cursor: pointer; font-size: 10px; text-decoration: none;
     transition: background 0.15s, color 0.15s, transform 0.1s;
 }
 .watch-btn:hover { transform: scale(1.1); }
@@ -473,16 +419,13 @@ header {
     position: relative; display: flex; justify-content: center; align-items: center; 
     margin-top: 12px; flex-shrink: 0; width: 100%; min-height: 32px;
 }
-
 .pagination { display: flex; justify-content: center; gap: 8px; align-items: center; }
 .pagination a, .pagination .page-prev, .pagination .page-next { 
     display: inline-flex; align-items: center; justify-content: center; 
     width: 20px; height: 20px; font-size: 11px; color: #555; 
     border-radius: 50%; transition: background 0.15s, color 0.15s;
 }
-.pagination a:hover, .pagination .page-prev:hover, .pagination .page-next:hover { 
-    background: #f0f4ff; color: #2c3a8c; 
-}
+.pagination a:hover, .pagination .page-prev:hover, .pagination .page-next:hover { background: #f0f4ff; color: #2c3a8c; }
 .pagination a.active { background: #3920a7; color: #fff; font-weight: 700; }
 .pagination .ellipsis { color: #999; margin: 0 2px; font-size: 12px; }
 
@@ -504,8 +447,7 @@ header {
 }
 .board-search button:hover { opacity: 0.85; }
 
+
 /* ================= FOOTER ================= */
-footer {
-    width: 100vw; height: 90px; flex-shrink: 0; position: relative; overflow: hidden;
-}
+footer { width: 100vw; height: 90px; flex-shrink: 0; position: relative; overflow: hidden; }
 footer img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
