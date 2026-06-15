@@ -248,13 +248,19 @@ header {
     box-sizing: border-box;
     color: #fff; display: flex; align-items: center; position: relative; overflow: hidden;
 }
-
+.container-center1 { 
+    width: 1250px;
+    max-width: 1250px;
+    margin: 0 auto ; 
+    padding: 5px 20px ; 
+    box-sizing: border-box ;
+}
 /* ── 본문 영역 (사이드바 없음) ── */
 .sub-page-content {
     flex: 1;
     display: flex;
     flex-direction: row;
-    padding: 7px 50px 12px;
+    
     overflow: hidden;
     box-sizing: border-box;
 }
