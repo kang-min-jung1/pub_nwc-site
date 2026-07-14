@@ -19,11 +19,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('.nav-item');
     let leaveTimer = null;
 
-    // 섭리역사와 사연 페이지 - 3번째 메뉴(index 2) 활성화, 서브메뉴 없음
+    // 섭리역사와 사연 페이지 - 3번째 메뉴(index 2) 활성화 + 서브메뉴 표시
     function setDefaultSubBar() {
         navItems.forEach(i => i.classList.remove('active'));
         navItems[2].classList.add('active');
+        subBar.classList.add('show');
         subBar.innerHTML = '';
+
+        const itemRect = navItems[2].getBoundingClientRect();
+        const navRect  = navWrap.getBoundingClientRect();
+        subBar.style.left = (itemRect.left - navRect.left) + 'px';
+
+        const subMenu = navItems[2].querySelector('.sub-menu');
+        if (subMenu) {
+            const links = subMenu.querySelectorAll('li a');
+            links.forEach((link, idx) => {
+                const a = document.createElement('a');
+                a.href = link.href;
+                a.textContent = link.textContent;
+                if (idx === 0) a.classList.add('active');
+                subBar.appendChild(a);
+            });
+        }
     }
 
     navItems.forEach(item => {
@@ -70,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 페이지 로드 시 기본 서브바 (섭리역사와 사연은 서브메뉴 없음)
+    // 페이지 로드 시 기본 서브바 표시
     setDefaultSubBar();
 
     // ── 헤더 검색 ──
@@ -126,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (prevBtn)  { prevBtn.style.opacity  = num <= 1     ? '0.3' : '1'; prevBtn.style.pointerEvents  = num <= 1     ? 'none' : 'auto'; }
         if (nextBtn)  { nextBtn.style.opacity  = num >= total ? '0.3' : '1'; nextBtn.style.pointerEvents  = num >= total ? 'none' : 'auto'; }
         if (firstBtn) { firstBtn.style.opacity = num <= 1     ? '0.3' : '1'; firstBtn.style.pointerEvents = num <= 1     ? 'none' : 'auto'; }
-        if (lastBtn)  { lastBtn.style.opacity  = num >= total ? '0.3' : '1'; lastBtn.style.pointerEvents  = num >= total ? 'none' : 'auto'; }
+        if (lastBtn)  { lastBtn.style.opacity  = num >= total ? '0.3' : '1'; lastBtn.style.pointerEvents = num >= total ? 'none' : 'auto'; }
     }
 
     pageLinks().forEach(a => {
