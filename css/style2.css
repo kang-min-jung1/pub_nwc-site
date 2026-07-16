@@ -252,7 +252,7 @@ header {
     background-image: url('../img/teacher3.png'); 
     background-repeat: no-repeat;       
     background-position: center;        
-    background-size: contain;
+    background-size:contain;
     padding-top: 10px;
     box-sizing: border-box;
     color: #fff; display: flex; align-items: center; position: relative; overflow: hidden;
